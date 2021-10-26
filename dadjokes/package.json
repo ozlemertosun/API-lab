@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/ozlemertosun/API-lab#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-sass": "^5.0.0",
     "sass": "^1.43.3"
   }

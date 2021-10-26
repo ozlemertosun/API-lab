@@ -1,20 +1,32 @@
 body {
   margin: 0 auto;
   text-align: center;
-  background-image: url("/troels_bg.pngg");
+  background-image: url("/troels_bg.png");
 }
 
-section {
+.Section {
   margin: 0 auto;
-  margin-top: 10rem;
-  background-color: violet;
+  margin-top: 15vh;
+  background-color: #4bc39b;
+  opacity: 0.9;
   width: 50%;
   padding: 10%;
+  color: black;
 }
-
-button {
-  background-color: salmon;
-  color: indigo;
+.Section .Section__header {
+  font-family: "ZCOOL KuaiLe", cursive;
+  font-size: 3.2em;
+}
+.Section .Section__paragraph {
+  font-size: 1.3em;
+}
+.Section .Section__button {
+  background-color: #e928ac;
+  color: #4bc39b;
   border: none;
   cursor: pointer;
+  padding: 2%;
+  border-radius: 25px;
+  margin-top: 2em;
+  font-size: 0.9em;
 }
