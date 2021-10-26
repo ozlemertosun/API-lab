@@ -1,0 +1,20 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+  background-image: url("/troels_bg.pngg");
+}
+
+section {
+  margin: 0 auto;
+  margin-top: 10rem;
+  background-color: violet;
+  width: 50%;
+  padding: 10%;
+}
+
+button {
+  background-color: salmon;
+  color: indigo;
+  border: none;
+  cursor: pointer;
+}
