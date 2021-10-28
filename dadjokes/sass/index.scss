@@ -30,6 +30,10 @@ body{
         border-radius: 25px;
         margin-top: 2em;
         font-size: 0.9em;
+        &:hover{
+            background-color: rgb(74, 62, 189);
+            transform: scale(1.1);
+        }
      }
 }
 
