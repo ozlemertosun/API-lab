@@ -1,21 +1,18 @@
-
-document.querySelector(".Section__button").addEventListener("click", function(){
- 
-async function myFetch(){   
-    let response = await fetch("https://icanhazdadjoke.com/", {
+async function fetchJoke() {
+    try {
+    const { data } = await axios.get('https://icanhazdadjoke.com/', {
         headers: {
-            accept: "application/json", 
-        }, 
-});
+            accept: 'application/json'
+    }
+    })
 
-let data = await response.json();
-return data;
+    document.querySelector('.Section__paragraph').textContent = data.joke
+        } catch (error) {
+            console.error(error)
+    }
+    }
+    
+    fetchJoke()
+    document.querySelector('.Section__button').addEventListener('click', fetchJoke)
 
-}
-
-myFetch().then(data => {
-    document.querySelector(".Section__paragraph").textContent = data.joke;
-    });
-});
-
-//linje 4 kan også skrives som en anonym funktion = "const myFetch = async () => {}"
+//linje 1 kan også skrives som en anonym funktion = "const myFetch = async () => {}"

@@ -4,45 +4,47 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-document.querySelector(".Section__button").addEventListener("click", function () {
-  function myFetch() {
-    return _myFetch.apply(this, arguments);
-  }
+function fetchJoke() {
+  return _fetchJoke.apply(this, arguments);
+}
 
-  function _myFetch() {
-    _myFetch = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-      var response, data;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return fetch("https://icanhazdadjoke.com/", {
-                headers: {
-                  accept: "application/json"
-                }
-              });
+function _fetchJoke() {
+  _fetchJoke = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var _yield$axios$get, data;
 
-            case 2:
-              response = _context.sent;
-              _context.next = 5;
-              return response.json();
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return axios.get('https://icanhazdadjoke.com/', {
+              headers: {
+                accept: 'application/json'
+              }
+            });
 
-            case 5:
-              data = _context.sent;
-              return _context.abrupt("return", data);
+          case 3:
+            _yield$axios$get = _context.sent;
+            data = _yield$axios$get.data;
+            document.querySelector('.Section__paragraph').textContent = data.joke;
+            _context.next = 11;
+            break;
 
-            case 7:
-            case "end":
-              return _context.stop();
-          }
+          case 8:
+            _context.prev = 8;
+            _context.t0 = _context["catch"](0);
+            console.error(_context.t0);
+
+          case 11:
+          case "end":
+            return _context.stop();
         }
-      }, _callee);
-    }));
-    return _myFetch.apply(this, arguments);
-  }
+      }
+    }, _callee, null, [[0, 8]]);
+  }));
+  return _fetchJoke.apply(this, arguments);
+}
 
-  myFetch().then(function (data) {
-    document.querySelector(".Section__paragraph").textContent = data.joke;
-  });
-}); //linje 4 kan også skrives som en anonym funktion = "const myFetch = async () => {}"
+fetchJoke();
+document.querySelector('.Section__button').addEventListener('click', fetchJoke); //linje 1 kan også skrives som en anonym funktion = "const myFetch = async () => {}"
