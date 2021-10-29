@@ -1,4 +1,6 @@
-const createElement = (tag, options) => {
+/* const { default: axios } = require("axios") */
+
+/* const createElement = (tag, options) => {
     return Object.assign(document.createElement(tag), options)
     }
 
@@ -40,5 +42,22 @@ document.querySelector('.Section__button').addEventListener('click', jokeList)
 
 
 deleteBtn.addEventListener('click',() =>{
-    
+
 }) 
+ */
+
+const jokes = []; 
+
+for (let index = 0; index < 10; index++) {
+   
+    axios.get('https://icanhazdadjoke.com/', {
+        headers: {
+            accept: 'application/json'
+        },
+    })
+    .then((response) => { 
+        jokes.push({id: response.data.id, joke: response.data.joke});
+    });
+}
+
+console.log(jokes);

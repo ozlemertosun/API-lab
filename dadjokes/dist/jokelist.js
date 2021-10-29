@@ -1,38 +1,65 @@
 "use strict";
 
-var createElement = function createElement(tag, options) {
-  return Object.assign(document.createElement(tag), options);
-};
+/* const { default: axios } = require("axios") */
 
-var current = 0;
-var listWrap = document.querySelector('.Section__list-wrap');
+/* const createElement = (tag, options) => {
+    return Object.assign(document.createElement(tag), options)
+    }
 
-function jokeList() {
-  if (current != 10) {
-    current++;
+let current = 0
+const listWrap = document.querySelector('.Section__list-wrap')
+
+
+function jokeList(){
+    if (current != 10) {
+    current++
+
     btnWrap = createElement('div', {
-      className: 'btnWrap'
-    });
+        className: 'btnWrap'
+    })
     litsItem = createElement('li', {
-      className: 'listItem'
-    });
+        className: 'listItem'
+    })
     deleteBtn = createElement('button', {
-      className: 'deleteBtn'
-    });
-    listWrap.appendChild(btnWrap);
-    btnWrap.appendChild(litsItem);
-    btnWrap.appendChild(deleteBtn);
+        className: 'deleteBtn'
+    })
+   
+    listWrap.appendChild(btnWrap)
+    btnWrap.appendChild(litsItem)
+    btnWrap.appendChild(deleteBtn)
+
     axios.get('https://icanhazdadjoke.com/', {
-      headers: {
-        accept: 'application/json'
-      }
-    }).then(function (response) {
-      console.log(response.data.joke);
-      litsItem.textContent = response.data.joke;
-      deleteBtn.textContent = 'Delete';
+        headers: {
+            accept: 'application/json'
+        }
+    })
+    .then(response => {
+    console.log(response.data.joke)
+    litsItem.textContent = response.data.joke
+    deleteBtn.textContent = 'Delete'
+    })
+}}
+
+document.querySelector('.Section__button').addEventListener('click', jokeList)
+
+
+deleteBtn.addEventListener('click',() =>{
+
+}) 
+ */
+var jokes = [];
+
+for (var index = 0; index < 10; index++) {
+  axios.get('https://icanhazdadjoke.com/', {
+    headers: {
+      accept: 'application/json'
+    }
+  }).then(function (response) {
+    jokes.push({
+      id: response.data.id,
+      joke: response.data.joke
     });
-  }
+  });
 }
 
-document.querySelector('.Section__button').addEventListener('click', jokeList);
-deleteBtn.addEventListener('click', function () {});
+console.log(jokes);
