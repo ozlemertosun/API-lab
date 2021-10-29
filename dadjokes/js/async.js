@@ -1,3 +1,5 @@
+const { default: axios } = require("axios")
+
 async function fetchJoke() {
     try {
     const { data } = await axios.get('https://icanhazdadjoke.com/', {
@@ -14,6 +16,19 @@ async function fetchJoke() {
     
     fetchJoke()
     document.querySelector('.Section__button').addEventListener('click', fetchJoke)
+
+
+
+
+/* axios.get('https://icanhazdadjoke.com/', {
+    headers: {
+        accept: 'application/json'
+}
+})
+.then((response) => {
+    console.log(response.data.joke);
+});
+ */
 
 //linje 1 kan også skrives som en anonym funktion = "const myFetch = async () => {}"
 

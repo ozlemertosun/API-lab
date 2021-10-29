@@ -4,6 +4,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+var _require = require("axios"),
+    axios = _require["default"];
+
 function fetchJoke() {
   return _fetchJoke.apply(this, arguments);
 }
@@ -47,7 +50,17 @@ function _fetchJoke() {
 }
 
 fetchJoke();
-document.querySelector('.Section__button').addEventListener('click', fetchJoke); //linje 1 kan også skrives som en anonym funktion = "const myFetch = async () => {}"
+document.querySelector('.Section__button').addEventListener('click', fetchJoke);
+/* axios.get('https://icanhazdadjoke.com/', {
+    headers: {
+        accept: 'application/json'
+}
+})
+.then((response) => {
+    console.log(response.data.joke);
+});
+ */
+//linje 1 kan også skrives som en anonym funktion = "const myFetch = async () => {}"
 //hent star wars API
 
 /* 
