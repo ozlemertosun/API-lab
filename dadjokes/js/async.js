@@ -1,5 +1,3 @@
-const { default: axios } = require("axios")
-
 async function fetchJoke() {
     try {
     const { data } = await axios.get('https://icanhazdadjoke.com/', {
